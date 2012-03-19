@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html><head>
+<title>UI test page</title>
+<meta charset="UTF-8">
+<meta name="description" content="" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"  />                  <!-- bootstrap -->
+<script type="text/javascript" src="js/jquery.UItest.js"></script>                   <!-- SNIPPET -->
+
+</head><body>
+<!-- ===================================== END HEADER ===================================== -->
+
+<div align="center">
+<h1>UI test Page</h1>
+
+<button class="btn btn-primary timer">time</button>
+</div>
+<br/>
+<ul class="pager">
+  <li>
+    <a href="#">Previous</a>
+  </li>
+  <li class="timer">
+    <a href="#">Next</a>
+  </li>
+</ul>
+
+<p class="result"></p>
+<!--
+<script>
+var startTime;
+var endTime;
+var clickTime;
+
+$(document).ready(function(){
+	startTime = new Date().getTime();
+});
+
+
+(function(){
+	$('.timer').bind('click', function(){
+		var lastClickTime = clickTime;
+		clickTime = new Date().getTime();
+		totalTime = clickTime - startTime;
+		costTime= clickTime - lastClickTime;
+		if(!costTime){
+			costTime = "FirstClick";
+		}
+		console.log(startTime+" "+clickTime+" "+costTime+" "+totalTime);
+		$("p").remove();
+		$("br").remove();
+		$("button").append("</br>");
+		$("ul").append("<p></p>");
+		$("p").append("</br>ClicktoClick: "+costTime+"  FromPageReady: "+totalTime);
+	});
+})();
+</script>
+-->
+<!-- ===================================== START FOOTER ===================================== -->
+</div>
+
+</div><!-- END WRAP -->
+</body></html>
