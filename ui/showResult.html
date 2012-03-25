@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html><head>
+<title>UI test page</title>
+<meta charset="UTF-8">
+<meta name="description" content="" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"  />                  <!-- bootstrap -->
+<script type="text/javascript" src="js/jquery.UItest.js"></script>                   <!-- SNIPPET -->
+
+</head><body>
+<!-- ===================================== END HEADER ===================================== -->
+
+<div align="center">
+<h1>Result</h1><button class="btn btn-primary timer">dataReset</button>
+
+<p></p>
+
+<script>
+$(document).ready(function(){
+	for (var i = 1; i < localStorage.length; i++) {
+ 		var data = localStorage.getItem(i-1);
+		$("p").append("<p>"+data+"</p>");
+	}
+});
+
+
+(function(){
+	$('.timer').bind('click', function(){
+	localStorage.clear();
+	});
+})();
+</script>
+
+<!-- ===================================== START FOOTER ===================================== -->
+</div>
+
+</div><!-- END WRAP -->
+</body></html>
