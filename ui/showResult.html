@@ -12,7 +12,7 @@
 <!-- ===================================== END HEADER ===================================== -->
 
 <div align="center">
-<h1>Result</h1><button class="btn btn-primary">dataReset</button>
+<h1>Result</h1><button class="btn btn-primary reset">dataReset</button>
 
 <p></p>
 
@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 
 (function(){
-	$('.timer').bind('click', function(){
+	$('.reset').bind('click', function(){
 	localStorage.clear();
 	});
 })();
