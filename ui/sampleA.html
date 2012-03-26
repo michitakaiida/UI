@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head>
-<title>UI test page</title>
+<title class="title">A</title>
 <meta charset="UTF-8">
 <meta name="description" content="" />
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
@@ -36,13 +36,13 @@ var lastClickedName;
 var clickedName;
 var lastClickTime;
 var testTime;
-var i=1;
+var i=0;
 
 $(document).ready(function(){
 	var now = new Date();
 	testTime = now.toLocaleString();
 	startTime = new Date().getTime();
-
+	
 });
 
 
@@ -66,10 +66,10 @@ $(document).ready(function(){
 		$("br").remove();
 		$("button").append("</br>");
 		$("ul").append("<p></p>");
-		$("p").append("</br>"+testTime +"</br></br>"+lastClickedName +">>"+clickedName+": "+costTime+"___________TotalTime: "+totalTime);
+		$("p").append("</br>"+ $('title').text()+"</br>"+testTime +"</br></br>"+lastClickedName +">>"+clickedName+": "+costTime+"___________TotalTime: "+totalTime);
 		if (typeof localStorage !== 'undefined') {
  			 // Web StorageÇ…ä÷Ç∑ÇÈèàóùÇãLèq
-			var rowData=lastClickedName+","+clickedName+","+costTime+","+totalTime;
+			var rowData=$('title').text()+","+lastClickedName+","+clickedName+","+costTime+","+totalTime;
 			i ++;
 			localStorage.setItem(i, rowData);
 			console.log(localStorage.getItem(i));
