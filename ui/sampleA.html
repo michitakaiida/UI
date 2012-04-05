@@ -3,7 +3,8 @@
 <title class="title">A</title>
 <meta charset="UTF-8">
 <meta name="description" content="" />
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="jquery-1.7.1.js"></script> <!-- for local -->
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"  />                  <!-- bootstrap -->
 <!--<script type="text/javascript" src="js/jquery.UItest.js"></script>-->                   <!-- SNIPPET -->
@@ -27,6 +28,7 @@
 </ul>
 
 <p class="result"></p>
+ <span> </span>
 
 <script>
 var startTime;
@@ -37,6 +39,7 @@ var clickedName;
 var lastClickTime;
 var testTime;
 var i=0;
+var i2=0;
 
 $(document).ready(function(){
 	var now = new Date();
@@ -44,6 +47,30 @@ $(document).ready(function(){
 	startTime = new Date().getTime();
 	
 });
+
+
+$().ready(function(){
+	$("html").mousemove(function(e){ 
+        var px=e.pageX;
+        var py=e.pageY;
+
+	if (typeof localStorage !== 'undefined') {
+ 		 // Web Storageに関する処理を記述
+		var mouseMoveDataX= px;
+		var mouseMoveDataY= py;
+		i2 ++;
+		localStorage.setItem("X"+i2, mouseMoveDataX);
+		localStorage.setItem("Y"+i2, mouseMoveDataY);
+		console.log(localStorage.getItem("X"+i2));
+		console.log(localStorage.getItem("Y"+i2));
+		} else {
+  			window.alert("本ブラウザではWeb Storageが使えません");
+		}
+});
+
+
+});
+
 
 
 (function(){

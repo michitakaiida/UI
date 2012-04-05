@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html><head>
+<title>UI test page</title>
+<meta charset="UTF-8">
+<meta name="description" content="" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="jquery-1.7.1.js"></script> <!-- for local -->
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"  />                  <!-- bootstrap -->
+<script type="text/javascript" src="js/jquery.UItest.js"></script>                   <!-- SNIPPET -->
+
+</head><body>
+<!-- ===================================== END HEADER ===================================== -->
+
+<div align="center">
+<h1>Result</h1>
+<button class="btn btn-primary reset">dataReset</button>
+<button class="btn btn-primary reload">reloadPage</button>
+<p></p>
+<canvas id="canvassample" align="center"></canvas>
+
+<script>
+$(document).ready(function(){
+	var  width= $(window).width();
+	var  height= $(window).height();
+	$("#canvassample").attr({ 
+      		width: width,
+		height: height
+    	});
+	
+	var canvas = document.getElementById('canvassample');
+	if ( ! canvas || ! canvas.getContext ) {
+    		return false;
+ 	}
+	var ctx = canvas.getContext('2d');
+ 
+	var px =  localStorage.getItem("X1");
+	var py =  localStorage.getItem("Y1");
+	var Position = 2;
+	for (var i = 0; i < localStorage.length-1; i++) {
+		ctx.beginPath();
+		ctx.moveTo(px, py);
+		if( localStorage.getItem("X"+ Position)){
+			if( localStorage.getItem("Y"+ Position)){
+				px = localStorage.getItem("X"+ Position);
+				py = localStorage.getItem("Y"+ Position);
+				ctx.lineTo(px, py);
+				ctx.closePath();
+				ctx.stroke();
+			}
+		}
+		Position = Position + 1;
+	}
+});
+
+
+(function(){
+	$('.reset').bind('click', function(){
+	localStorage.clear();
+	location.reload();
+	});
+})();
+
+(function(){
+	$('.reload').bind('click', function(){
+	location.reload();
+	});
+})();
+
+</script>
+
+<!-- ===================================== START FOOTER ===================================== -->
+</div>
+
+</div><!-- END WRAP -->
+</body></html>
